@@ -8,37 +8,59 @@ const root = ReactDOM.createRoot(
   document.getElementById('root')
 );
 
-const name = "Chinmay"
-const el = <p>Hello, {name}</p>
+// const name = "Chinmay"
+// const el = <p>Hello, {name}</p>
 
-let counter = 0;
+// let counter = 0;
 
-function show(){
-  counter++;
-  const el = <p>{counter}</p>;
-  root.render(
-    el, document.getElementById('root')
-  );
-}
+// function show(){
+//   counter++;
+//   const el = <p>{counter}</p>;
+//   root.render(
+//     el, document.getElementById('root')
+//   );
+// }
 
 //? setInterval(show,1000);
 
-function Hello(){
-  return <h1>Hello world.</h1>;
-}
+// function Hello(props){
+//   return <h1>Hello {props.name}</h1>;
+// }
 
-const line = <Hello />;
+// const line = <Hello name="Chinmay"/>;
 
-root.render(
-  line,
-  document.getElementById('root')
-);
+// root.render(
+//   line,
+//   document.getElementById('root')
+// );
 
 class classComponent extends React.Component {
   render(){
-    return <h1>Hello world.</h1>
+    return <h1>Hello {this.props.name}</h1>
   }
 }
+
+function App1(){
+  return <div>
+    <Item name="Cheese" price="4.99"/>
+    <Item name="Bread" price="1.5"/>
+    <Item name="Ice cream" price="24"/>
+    
+  </div>;
+}
+
+function Item(props){
+  return <div className='item'>
+    <b>Name:</b> {props.name} <br/>
+    <b>Price:</b> {props.price}
+  </div>;
+}
+
+const el = <App1/>
+root.render(
+  el,
+  document.getElementById('root')
+)
 
 
 
