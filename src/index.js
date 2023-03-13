@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -70,6 +70,14 @@ class Counter extends React.Component {
     });
   }
 
+  componentDidMount(){
+    this.setState({counter:0});
+  }  
+
+  componentDidUpdate() {
+    alert("Number of clicks: " + this.state.counter);
+  }
+
   render(){
     return <div>
       <p>{this.state.counter}</p>
@@ -87,9 +95,14 @@ function Hook(){
 function CounterHook() {
   const [counter, setCounter] = useState(0);
 
+  useEffect(()=>{
+    alert("number of clicks: "+counter);
+  },[counter]);
+
   function increment(){
     setCounter(counter+1);
   }
+
   return <div>
     <p>{counter}</p>
     <button onClick={increment}>
