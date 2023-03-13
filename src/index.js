@@ -34,9 +34,12 @@ const root = ReactDOM.createRoot(
 //   document.getElementById('root')
 // );
 
-class classComponent extends React.Component {
+class Hello extends React.Component {
+  state = {
+    name:"James"
+  }
   render(){
-    return <h1>Hello {this.props.name}</h1>
+    return <h1>Hello {this.state.name} {this.setState.age}</h1>
   }
 }
 
@@ -56,7 +59,27 @@ function Item(props){
   </div>;
 }
 
-const el = <App1/>
+class Counter extends React.Component {
+  state = {
+    counter : 0
+  }
+
+  increment = () =>{
+    this.setState({
+      counter: this.state.counter + 1
+    });
+  }
+
+  render(){
+    return <div>
+      <p>{this.state.counter}</p>
+      <button onClick={this.increment}>Increment</button>
+    </div>;
+  }
+
+}
+
+const el = <Counter/>
 root.render(
   el,
   document.getElementById('root')
