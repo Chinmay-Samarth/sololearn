@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -76,10 +76,29 @@ class Counter extends React.Component {
       <button onClick={this.increment}>Increment</button>
     </div>;
   }
-
 }
 
-const el = <Counter/>
+function Hook(){
+  const [name, setName] = useState("David");
+
+  return <h1>Hello {name}</h1>
+}
+
+function CounterHook() {
+  const [counter, setCounter] = useState(0);
+
+  function increment(){
+    setCounter(counter+1);
+  }
+  return <div>
+    <p>{counter}</p>
+    <button onClick={increment}>
+      Increment
+    </button>
+  </div>;
+}
+
+const el = <CounterHook/>;
 root.render(
   el,
   document.getElementById('root')
