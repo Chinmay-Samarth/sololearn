@@ -5,6 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider, connect } from 'react-redux';
 import { createStore } from 'redux';
+import app from './ContactManager'
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root')
@@ -205,7 +207,7 @@ const root = ReactDOM.createRoot(
  // const contacts = ["James Smith","Thomas Anderson","Bruce Wayne"];
 
   //!Counter using redux
-  
+
 // function mapStateToProps(state) {
 //   return {
 //     count: state.count
@@ -261,7 +263,7 @@ const root = ReactDOM.createRoot(
 
 
 
-// root.render(el)
+root.render(app)
 
 
 
